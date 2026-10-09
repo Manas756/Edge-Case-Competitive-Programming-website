@@ -230,12 +230,39 @@ tr.flash { animation: row-flash 1.2s var(--ease); }
 .site-footer .container { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 
 /* ---------- Home ---------- */
-.hero { padding: 72px 0 64px; position: relative; overflow: hidden; }
-.hero-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 56px; align-items: center; }
-.hero h1 { font-family: var(--font-pixel); font-size: clamp(42px, 6.5vw, 76px); letter-spacing: 0.01em; font-weight: 700; line-height: 1.05; }
+.hero { padding: 24px 0 48px; position: relative; overflow: hidden; }
+.hero-ticker {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 14px;
+  margin-bottom: 28px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  font-size: 12px;
+  color: var(--muted);
+}
+.hero-ticker-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.hero-ticker-tags {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 11.5px;
+}
+@media (max-width: 760px) {
+  .hero-ticker-tags { display: none; }
+}
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 48px; align-items: start; }
+.hero h1 { font-family: var(--font-pixel); font-size: clamp(40px, 6vw, 72px); letter-spacing: 0.01em; font-weight: 700; line-height: 1.05; }
 .hero h1 .br { font-family: var(--font-pixel); font-weight: 400; color: var(--faint); font-size: 0.85em; vertical-align: 0.04em; }
-.hero .sub { font-size: 19px; margin-top: 14px; color: var(--fg-2); font-weight: 600; letter-spacing: -0.01em; }
-.hero .lede { font-size: 15.5px; color: var(--muted); margin-top: 14px; max-width: 530px; line-height: 1.6; }
+.hero .sub { font-size: 18px; margin-top: 12px; color: var(--fg-2); font-weight: 600; letter-spacing: -0.01em; }
+.hero .lede { font-size: 15px; color: var(--muted); margin-top: 12px; max-width: 530px; line-height: 1.6; }
 .hero-bg { position: absolute; inset: 0; pointer-events: none; background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size: 32px 32px; mask-image: radial-gradient(ellipse at 80% 30%, #000 0%, transparent 60%); opacity: 0.55; }
 .terminal { border-radius: var(--r-lg); background: #0c0c0c; color: #e8e8e8; box-shadow: var(--shadow-lg); overflow: hidden; border: 1px solid #000; }
 .terminal-bar { display: flex; align-items: center; gap: 6px; padding: 10px 14px; border-bottom: 1px solid #222; font-family: var(--font-mono), monospace; font-size: 11.5px; color: #8a8a8a; }

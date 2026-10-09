@@ -36,9 +36,23 @@ export default function Home() {
     <>
       <section className="hero">
         <div className="hero-bg" />
-        <div className="container hero-grid" style={{ position: "relative" }}>
-          <div>
-            <div className="eyebrow">EDGE CASE // HARDCORE ALGORITHMIC ARENA</div>
+        <div className="container" style={{ position: "relative" }}>
+          <div className="hero-ticker">
+            <div className="hero-ticker-left">
+              <span className="badge solid"><span className="dot live" /> LIVE ARENA</span>
+              <span className="pixel" style={{ color: "var(--fg)" }}>SYSTEM ONLINE // SEASON 2026</span>
+            </div>
+            <div className="hero-ticker-tags">
+              <span>⚡ <strong>Sub-second</strong> Sandbox</span>
+              <span className="faint">/</span>
+              <span>🛡️ <strong>Anti-Cheat</strong> Telemetry</span>
+              <span className="faint">/</span>
+              <span>🎯 <strong>Zero-Tolerance</strong> Hidden Grader</span>
+            </div>
+          </div>
+          <div className="hero-grid">
+            <div>
+              <div className="eyebrow">EDGE CASE // HARDCORE ALGORITHMIC ARENA</div>
             <h1 style={{ marginTop: 14 }}>
               <span className="br">{"<"}</span>Edge Case<span className="br">{"/>"}</span>
             </h1>
@@ -87,6 +101,7 @@ export default function Home() {
             </div>
           </div>
         </div>
+      </div>
       </section>
 
       <section className="section" id="recent">
