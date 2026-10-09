@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Bitcount+Single:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Changa+One:ital@0;1&display=swap');
 
 :root {
-  --font-sans: 'Bitcount Single', system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-mono: 'Bitcount Single', ui-monospace, "SFMono-Regular", Consolas, monospace;
+  --font-sans: 'Changa One', system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: 'Changa One', ui-monospace, "SFMono-Regular", Consolas, monospace;
   --bg: #ffffff;
   --bg-subtle: #f7f7f6;
   --bg-muted: #efefed;
@@ -30,21 +30,21 @@ html, body {
   scroll-behavior: smooth;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Bitcount Single', sans-serif;
+  font-family: 'Changa One', sans-serif;
 }
 body {
   background: var(--bg);
   color: var(--fg);
-  font-family: 'Bitcount Single', var(--font-sans), system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-family: 'Changa One', var(--font-sans), system-ui, -apple-system, "Segoe UI", sans-serif;
   font-size: 14px;
   line-height: 1.55;
   overflow-x: hidden;
 }
 a { color: inherit; text-decoration: none; }
-code, pre, kbd, .mono { font-family: 'Bitcount Single', var(--font-mono), monospace; }
-h1, h2, h3, h4 { margin: 0; letter-spacing: -0.015em; line-height: 1.2; font-weight: 600; font-family: 'Bitcount Single', sans-serif; }
+code, pre, kbd, .mono { font-family: 'Changa One', var(--font-mono), monospace; }
+h1, h2, h3, h4 { margin: 0; letter-spacing: -0.015em; line-height: 1.2; font-weight: 600; font-family: 'Changa One', sans-serif; }
 p { margin: 0; }
-button, input, select, textarea { font: inherit; font-family: 'Bitcount Single', inherit; color: inherit; }
+button, input, select, textarea { font: inherit; font-family: 'Changa One', inherit; color: inherit; }
 ::selection { background: var(--ink); color: var(--on-ink); }
 :focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; border-radius: 3px; }
 img, svg { max-width: 100%; }
