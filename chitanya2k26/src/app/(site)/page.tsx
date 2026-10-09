@@ -38,45 +38,52 @@ export default function Home() {
         <div className="hero-bg" />
         <div className="container hero-grid" style={{ position: "relative" }}>
           <div>
-            <div className="eyebrow">Edge Case · Algorithms track</div>
+            <div className="eyebrow">EDGE CASE // HARDCORE ALGORITHMIC ARENA</div>
             <h1 style={{ marginTop: 14 }}>
               <span className="br">{"<"}</span>Edge Case<span className="br">{"/>"}</span>
             </h1>
-            <p className="sub">Competitive Programming Contest Platform</p>
+            <p className="sub">Where algorithms meet their breaking points.</p>
             <p className="lede">
-              Join a timed coding contest with your team code, solve algorithmic problems in the browser, and see where you stand on a live leaderboard.
-              Every submission is judged against public and hidden test cases.
+              Step into time-pressured competitive rounds engineered to test corner-case resilience.
+              Code in the browser, stress-test your solutions against merciless hidden bounds, and fight for rank #1 on the live leaderboard.
             </p>
             <div className="row wrap" style={{ marginTop: 28 }}>
-              <Link href="/join" className="btn primary lg">Join Contest</Link>
-              <Link href="#recent" className="btn lg">Recent Contests</Link>
+              <Link href="/join" className="btn primary lg">
+                <span className="pixel">Enter Arena</span>
+              </Link>
+              <Link href="#recent" className="btn lg">Explore Battles</Link>
             </div>
             {live && (
               <Link href={`/contests/${live.id}`} className="row small" style={{ marginTop: 24, gap: 8 }}>
-                <span className="badge solid"><span className="dot live" />Live</span>
-                <span><strong>{live.name}</strong> is running now · {live.participants} competing</span>
+                <span className="badge solid"><span className="dot live" />LIVE MATCH</span>
+                <span><strong>{live.name}</strong> is running now · {live.participants} hackers battling</span>
                 <span aria-hidden>→</span>
               </Link>
             )}
           </div>
           <div className="terminal" aria-hidden>
-            <div className="terminal-bar"><i /><i /><i /><span style={{ marginLeft: 8 }}>E_shortest_path.cpp</span></div>
+            <div className="terminal-bar">
+              <i /><i /><i />
+              <span style={{ marginLeft: 8 }} className="pixel">edge_case_stress.cpp</span>
+            </div>
             <pre>
-              <span className="c">{"// Problem E · Dijkstra, O((n + m) log n)"}</span>{"\n"}
-              <span className="k">priority_queue</span>{"<pair<ll,int>, vector<...>, greater<>> pq;\n"}
+              <span className="c">{"// Problem E · Stress-testing Dijkstra under extreme bounds\n// N <= 2e5, M <= 5e5, edge weights up to 1e9 (avoid overflow!)"}</span>{"\n"}
+              <span className="k">priority_queue</span>{"<pair<ll,int>, vector<pair<ll,int>>, greater<>> pq;\n"}
               {"dist[1] = 0; pq.push({0, 1});\n"}
               <span className="k">while</span>{" (!pq.empty()) {\n"}
               {"    auto [d, u] = pq.top(); pq.pop();\n"}
-              {"    "}<span className="k">if</span>{" (d > dist[u]) "}<span className="k">continue</span>{";\n"}
-              {"    "}<span className="k">for</span>{" (auto [v, w] : adj[u])\n"}
-              {"        "}<span className="k">if</span>{" (dist[u] + w < dist[v])\n"}
+              {"    "}<span className="k">if</span>{" (d > dist[u]) "}<span className="k">continue</span>{"; // prune stale states\n"}
+              {"    "}<span className="k">for</span>{" (auto [v, w] : adj[u]) {\n"}
+              {"        "}<span className="k">if</span>{" (dist[u] + w < dist[v]) {\n"}
               {"            pq.push({dist[v] = dist[u] + w, v});\n"}
+              {"        }\n"}
+              {"    }\n"}
               {"}"}
             </pre>
             <div style={{ padding: "0 18px 10px" }}><GraphFigure /></div>
             <div className="terminal-foot">
-              <span>✓ 3/3 public tests passed</span>
-              <span>12 ms · 3.4 MB</span>
+              <span className="pixel">✓ 48/48 hidden tests passed</span>
+              <span className="mono">8 ms · 3.1 MB · 0 WA</span>
             </div>
           </div>
         </div>
@@ -86,10 +93,10 @@ export default function Home() {
         <div className="container">
           <div className="section-head">
             <div>
-              <div className="eyebrow">Contests</div>
-              <h2 style={{ marginTop: 6 }}>Recent contests</h2>
+              <div className="eyebrow">WAR ROOM // CONTEST ARCHIVES</div>
+              <h2 style={{ marginTop: 6 }}>Active & Recent Battles</h2>
             </div>
-            <Link href="/contests" className="btn sm">All contests →</Link>
+            <Link href="/contests" className="btn sm">All Battles →</Link>
           </div>
           {contests.length ? (
             <div className="contest-grid">{contests.slice(0, 6).map((c) => <ContestCard key={c.id} c={c} />)}</div>
@@ -101,11 +108,61 @@ export default function Home() {
 
       <section className="section">
         <div className="container">
-          <div className="section-head"><div><div className="eyebrow">Format</div><h2 style={{ marginTop: 6 }}>How a round works</h2></div></div>
+          <div className="section-head">
+            <div>
+              <div className="eyebrow">ARENA PROTOCOL</div>
+              <h2 style={{ marginTop: 6 }}>How a Round Works</h2>
+            </div>
+          </div>
           <div className="steps">
-            <div><span className="n">01 · enter</span><h3>Join with a code</h3><p className="muted">Enter your team or contest code. Your personal timer starts the moment you enter the arena.</p></div>
-            <div><span className="n">02 · solve</span><h3>Run, then submit</h3><p className="muted">Run against the sample tests as often as you like. A submission is judged on public and hidden tests in an isolated sandbox.</p></div>
-            <div><span className="n">03 · rank</span><h3>Climb the leaderboard</h3><p className="muted">Ranking follows the contest&apos;s scoring rules: points or problems solved first, then penalty time.</p></div>
+            <div>
+              <span className="n">01 // INFILTRATE</span>
+              <h3>Join with Contest Key</h3>
+              <p className="muted">Enter your invite code. Your personal clock triggers the microsecond your session initializes.</p>
+            </div>
+            <div>
+              <span className="n">02 // STRESS-TEST</span>
+              <h3>Run Samples, Brave Hidden Tests</h3>
+              <p className="muted">Test against public samples, then submit to the isolated sandbox judge where adversarial edge cases await.</p>
+            </div>
+            <div>
+              <span className="n">03 // DOMINATE</span>
+              <h3>Climb the Dynamic Board</h3>
+              <p className="muted">Scores update in real time with penalty deductions for failed attempts. Solve cleanly and quickly to top the standings.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <div className="section-head">
+            <div>
+              <div className="eyebrow">SYSTEM CAPABILITIES</div>
+              <h2 style={{ marginTop: 6 }}>Engineered for Precision</h2>
+            </div>
+          </div>
+          <div className="stats" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))" }}>
+            <div className="stat">
+              <div className="k pixel">SANDBOX JUDGE</div>
+              <div className="v" style={{ fontSize: 17, marginTop: 6 }}>Sub-second Execution</div>
+              <p className="muted tiny" style={{ marginTop: 4 }}>Fast isolated grading across C++, Python, Java & JS.</p>
+            </div>
+            <div className="stat">
+              <div className="k pixel">INTEGRITY GUARD</div>
+              <div className="v" style={{ fontSize: 17, marginTop: 6 }}>Focus & Anti-Cheat</div>
+              <p className="muted tiny" style={{ marginTop: 4 }}>Tab-switch tracking and session telemetry keep it fair.</p>
+            </div>
+            <div className="stat">
+              <div className="k pixel">DYNAMIC PENALTY</div>
+              <div className="v" style={{ fontSize: 17, marginTop: 6 }}>Zero-Tolerance Board</div>
+              <p className="muted tiny" style={{ marginTop: 4 }}>Real-time recalculations with precision time and wrong penalties.</p>
+            </div>
+            <div className="stat">
+              <div className="k pixel">CUSTOM ARENAS</div>
+              <div className="v" style={{ fontSize: 17, marginTop: 6 }}>Organizer Control</div>
+              <p className="muted tiny" style={{ marginTop: 4 }}>Curate test suites, hidden edge cases, and launch live matches.</p>
+            </div>
           </div>
         </div>
       </section>

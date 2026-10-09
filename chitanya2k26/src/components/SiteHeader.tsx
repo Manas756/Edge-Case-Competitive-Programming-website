@@ -7,7 +7,7 @@ export function Brand() {
   return (
     <Link href="/" className="brand" aria-label="Edge Case home">
       <span className="brand-mark">{"{ec}"}</span>
-      Edge Case
+      <span className="brand-name">Edge Case</span>
     </Link>
   );
 }
