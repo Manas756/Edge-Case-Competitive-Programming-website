@@ -5,9 +5,9 @@ import { useState } from "react";
 
 export function Brand() {
   return (
-    <Link href="/" className="brand" aria-label="Chaitanya2k26 home">
-      <span className="brand-mark">{"{c}"}</span>
-      Chaitanya2k26
+    <Link href="/" className="brand" aria-label="Edge Case home">
+      <span className="brand-mark">{"{ec}"}</span>
+      Edge Case
     </Link>
   );
 }

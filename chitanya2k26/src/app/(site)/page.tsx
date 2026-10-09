@@ -38,9 +38,9 @@ export default function Home() {
         <div className="hero-bg" />
         <div className="container hero-grid" style={{ position: "relative" }}>
           <div>
-            <div className="eyebrow">Chaitanya 2026 · Algorithms track</div>
+            <div className="eyebrow">Edge Case · Algorithms track</div>
             <h1 style={{ marginTop: 14 }}>
-              <span className="br">{"<"}</span>Chaitanya2k26<span className="br">{"/>"}</span>
+              <span className="br">{"<"}</span>Edge Case<span className="br">{"/>"}</span>
             </h1>
             <p className="sub">Competitive Programming Contest Platform</p>
             <p className="lede">
