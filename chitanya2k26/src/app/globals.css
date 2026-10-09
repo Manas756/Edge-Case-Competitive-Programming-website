@@ -230,35 +230,49 @@ tr.flash { animation: row-flash 1.2s var(--ease); }
 .site-footer .container { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 
 /* ---------- Home ---------- */
-.hero { padding: 24px 0 48px; position: relative; overflow: hidden; }
-.hero-ticker {
-  display: flex;
+.hero { padding: 44px 0 60px; position: relative; overflow: hidden; }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 48px; align-items: center; }
+
+.hero-pill {
+  display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 8px 14px;
-  margin-bottom: 28px;
+  gap: 8px;
+  padding: 4px 12px 4px 6px;
   background: var(--bg-subtle);
   border: 1px solid var(--line);
-  border-radius: var(--r);
+  border-radius: 99px;
   font-size: 12px;
   color: var(--muted);
+  margin-bottom: 16px;
 }
-.hero-ticker-left {
+.hero-pill .badge { height: 18px; padding: 0 6px; font-size: 10.5px; }
+
+.hero-specs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px dashed var(--line-strong);
+}
+.spec-card {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  flex-direction: column;
+  gap: 3px;
 }
-.hero-ticker-tags {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  font-size: 11.5px;
+.spec-card .k {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
 }
-@media (max-width: 760px) {
-  .hero-ticker-tags { display: none; }
+.spec-card .v {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--fg);
 }
-.hero-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 48px; align-items: start; }
+@media (max-width: 640px) {
+  .hero-specs { grid-template-columns: repeat(2, 1fr); }
+}
 .hero h1 { font-family: var(--font-pixel); font-size: clamp(40px, 6vw, 72px); letter-spacing: 0.01em; font-weight: 700; line-height: 1.05; }
 .hero h1 .br { font-family: var(--font-pixel); font-weight: 400; color: var(--faint); font-size: 0.85em; vertical-align: 0.04em; }
 .hero .sub { font-size: 18px; margin-top: 12px; color: var(--fg-2); font-weight: 600; letter-spacing: -0.01em; }

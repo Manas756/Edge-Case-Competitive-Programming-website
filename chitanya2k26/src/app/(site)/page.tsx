@@ -36,23 +36,15 @@ export default function Home() {
     <>
       <section className="hero">
         <div className="hero-bg" />
-        <div className="container" style={{ position: "relative" }}>
-          <div className="hero-ticker">
-            <div className="hero-ticker-left">
-              <span className="badge solid"><span className="dot live" /> LIVE ARENA</span>
-              <span className="pixel" style={{ color: "var(--fg)" }}>SYSTEM ONLINE // SEASON 2026</span>
-            </div>
-            <div className="hero-ticker-tags">
-              <span>⚡ <strong>Sub-second</strong> Sandbox</span>
+        <div className="container hero-grid" style={{ position: "relative" }}>
+          <div>
+            <div className="hero-pill">
+              <span className="badge solid"><span className="dot live" /> ARENA LIVE</span>
+              <span className="pixel">ROUND 2026</span>
               <span className="faint">/</span>
-              <span>🛡️ <strong>Anti-Cheat</strong> Telemetry</span>
-              <span className="faint">/</span>
-              <span>🎯 <strong>Zero-Tolerance</strong> Hidden Grader</span>
+              <span className="mono">INVITE CODE: <strong>CHALLENGE</strong></span>
             </div>
-          </div>
-          <div className="hero-grid">
-            <div>
-              <div className="eyebrow">EDGE CASE // HARDCORE ALGORITHMIC ARENA</div>
+            <div className="eyebrow">EDGE CASE // HARDCORE ALGORITHMIC ARENA</div>
             <h1 style={{ marginTop: 14 }}>
               <span className="br">{"<"}</span>Edge Case<span className="br">{"/>"}</span>
             </h1>
@@ -74,6 +66,20 @@ export default function Home() {
                 <span aria-hidden>→</span>
               </Link>
             )}
+            <div className="hero-specs">
+              <div className="spec-card">
+                <span className="k pixel">CONSTRAINTS</span>
+                <span className="v mono">N ≤ 2·10⁵</span>
+              </div>
+              <div className="spec-card">
+                <span className="k pixel">PENALTY TIME</span>
+                <span className="v mono">+5m / WRONG</span>
+              </div>
+              <div className="spec-card">
+                <span className="k pixel">RUNTIMES</span>
+                <span className="v mono">C++ / PY / JS / JAVA</span>
+              </div>
+            </div>
           </div>
           <div className="terminal" aria-hidden>
             <div className="terminal-bar">
@@ -101,7 +107,6 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
       </section>
 
       <section className="section" id="recent">
