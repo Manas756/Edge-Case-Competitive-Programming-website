@@ -17,8 +17,16 @@ function mapStatus(id: number): Verdict {
 }
 
 export function createJudge0Adapter(): JudgeAdapter {
-  const base = (process.env.JUDGE0_URL || "").replace(/\/$/, "");
-  const ids: Record<Language, number> = { ...DEFAULT_IDS, ...(process.env.JUDGE0_LANGUAGE_IDS ? JSON.parse(process.env.JUDGE0_LANGUAGE_IDS) : {}) };
+  const base = (process.env.JUDGE0_URL || "").trim().replace(/\/$/, "");
+  let customIds: Partial<Record<Language, number>> = {};
+  if (process.env.JUDGE0_LANGUAGE_IDS) {
+    try {
+      customIds = JSON.parse(process.env.JUDGE0_LANGUAGE_IDS);
+    } catch {
+      console.warn("Invalid JUDGE0_LANGUAGE_IDS JSON. Falling back to default language IDs.");
+    }
+  }
+  const ids: Record<Language, number> = { ...DEFAULT_IDS, ...customIds };
   const headers: Record<string, string> = { "Content-Type": "application/json" };
   if (process.env.JUDGE0_API_KEY) {
     headers["X-RapidAPI-Key"] = process.env.JUDGE0_API_KEY;
@@ -28,6 +36,8 @@ export function createJudge0Adapter(): JudgeAdapter {
 
   async function runOne(req: JudgeRequest, input: string, expected: string): Promise<JudgeTestOutcome> {
     if (!base) throw new JudgeUnavailableError("JUDGE0_URL is not configured");
+    const langId = ids[req.language];
+    if (!langId) throw new JudgeUnavailableError(`Language '${req.language}' is not configured on Judge0`);
     const memKb = req.memoryLimit * 1024;
     let res: Response;
     try {
@@ -36,7 +46,7 @@ export function createJudge0Adapter(): JudgeAdapter {
         headers,
         body: JSON.stringify({
           source_code: b64(req.source),
-          language_id: ids[req.language],
+          language_id: langId,
           stdin: b64(input),
           expected_output: b64(expected),
           cpu_time_limit: req.timeLimit,

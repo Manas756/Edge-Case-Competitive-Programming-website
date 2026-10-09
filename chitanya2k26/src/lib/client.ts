@@ -77,9 +77,16 @@ export function usePoll<T = any>(url: string | null, intervalMs = 0) {
         load(true);
       }
     }, intervalMs);
+    const onVisibilityChange = () => {
+      if (document.visibilityState === "visible") {
+        load(true);
+      }
+    };
+    document.addEventListener("visibilitychange", onVisibilityChange);
     return () => {
       alive.current = false;
       clearInterval(t);
+      document.removeEventListener("visibilitychange", onVisibilityChange);
     };
   }, [load, intervalMs]);
   return { data, error, loading, reload: () => load(false), setData };

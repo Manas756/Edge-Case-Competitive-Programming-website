@@ -4,7 +4,20 @@ import { checkOrganizerKey, setOrganizerSession } from "@/lib/auth";
 
 const attempts = new Map<string, { n: number; until: number }>();
 
+function cleanupAttempts() {
+  const t = Date.now();
+  for (const [ip, item] of attempts.entries()) {
+    if (item.until > 0 && item.until < t) {
+      attempts.delete(ip);
+    }
+  }
+  if (attempts.size > 2000) {
+    attempts.clear();
+  }
+}
+
 export const POST = route(async (req) => {
+  cleanupAttempts();
   const ip = req.headers.get("x-forwarded-for")?.split(",")[0].trim() || "local";
   const a = attempts.get(ip);
   if (a && a.until > Date.now()) throw new AppError("RATE_LIMITED", "Too many attempts. Wait a minute and try again.", 429);

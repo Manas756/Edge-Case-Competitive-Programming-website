@@ -222,7 +222,7 @@ export default function Arena({ contestId }: { contestId: string }) {
     <div className="arena">
       <header className="arena-bar">
         <button className="btn sm only-mobile" onClick={() => setDrawer(true)} aria-label="Problems">☰ {problem.index}</button>
-        <Link href="/" className="brand-mark hide-mobile" aria-label="Home">{"{c}"}</Link>
+        <Link href="/" className="brand-mark hide-mobile" aria-label="Home">{"{ec}"}</Link>
         <div className="title grow">{data.contest.name}<span className="muted hide-mobile" style={{ fontWeight: 400 }}> · {data.me.name}{data.me.team ? ` (${data.me.team})` : ""}</span></div>
         {data.contest.cheatDetection && <span className="badge hide-mobile" title="Recorded monitoring events">Monitored{data.contest.sessionRule.enabled ? ` · ${data.me.violations}/${data.contest.sessionRule.maxViolations}` : ""}</span>}
         <span className="small muted hide-mobile">{solvedCount}/{data.problems.length} submitted</span>

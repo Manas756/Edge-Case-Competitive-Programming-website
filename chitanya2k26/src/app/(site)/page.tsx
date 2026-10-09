@@ -38,20 +38,28 @@ export default function Home() {
         <div className="hero-bg" />
         <div className="container hero-grid" style={{ position: "relative" }}>
           <div>
-            <div className="hero-pill">
-              <span className="badge solid"><span className="dot live" /> ARENA LIVE</span>
-              <span className="pixel">ROUND 2026</span>
-              <span className="faint">/</span>
-              <span className="mono">INVITE CODE: <strong>CHALLENGE</strong></span>
-            </div>
+            {live ? (
+              <div className="hero-pill">
+                <span className="badge solid"><span className="dot live" /> ARENA LIVE</span>
+                <span className="pixel">ROUND 2026</span>
+                <span className="faint">/</span>
+                <span className="mono">INVITE CODE: <strong>CHALLENGE</strong></span>
+              </div>
+            ) : (
+              <div className="hero-pill">
+                <span className="badge soft">NEXT ROUND</span>
+                <span className="pixel">EDGE CASE 2026</span>
+                <span className="faint">/</span>
+                <span className="mono">STANDBY</span>
+              </div>
+            )}
             <div className="eyebrow">EDGE CASE // HARDCORE ALGORITHMIC ARENA</div>
             <h1 style={{ marginTop: 14 }}>
               <span className="br">{"<"}</span>Edge Case<span className="br">{"/>"}</span>
             </h1>
             <p className="sub">Where algorithms meet their breaking points.</p>
             <p className="lede">
-              Step into time-pressured competitive rounds engineered to test corner-case resilience.
-              Code in the browser, stress-test your solutions against merciless hidden bounds, and fight for rank #1 on the live leaderboard.
+              Stress-test your code against merciless hidden bounds and fight for rank #1 on the live leaderboard.
             </p>
             <div className="row wrap" style={{ marginTop: 28 }}>
               <Link href="/join" className="btn primary lg">
